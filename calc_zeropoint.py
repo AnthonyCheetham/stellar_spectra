@@ -17,14 +17,14 @@ from astropy import units
 
 #######
 # Load the filter
-#filter_file = '/Users/cheetham/code/python_modules/stellar_spectra/cit_j.txt'
-#filter_file = '/Users/cheetham/code/python_modules/stellar_spectra/johnson_m.txt'
-#filter_file = '/Users/cheetham/code/python_modules/stellar_spectra/2mass_j.txt'
-filter_file = '/Users/cheetham/code/python_modules/stellar_spectra/NACO_Mp.dat'
-#filter_file = '/Users/cheetham/code/python_modules/stellar_spectra/NIRC2_Lp.dat'
-#filter_file = '/Users/cheetham/code/python_modules/stellar_spectra/SPHERE_IRDIS_D_H23.dat'
-#filter_file = '/Users/cheetham/code/python_modules/stellar_spectra/SPHERE_IRDIS_D_K12.dat'
-#filter_file = '/Users/cheetham/code/python_modules/stellar_spectra/SPHERE_IRDIS_B_Y.dat'
+#filter_file = './filters/cit_j.txt'
+#filter_file = './filters/johnson_m.txt'
+#filter_file = './filters/2mass_j.txt'
+filter_file = './filters/NACO_Mp.dat'
+#filter_file = './filters/NIRC2_Lp.dat'
+#filter_file = './filters/SPHERE_IRDIS_D_H23.dat'
+#filter_file = './filters/SPHERE_IRDIS_D_K12.dat'
+#filter_file = './filters/SPHERE_IRDIS_B_Y.dat'
 filter_data = np.loadtxt(filter_file,unpack=True)
 
 if filter_data.shape[0] == 3:
@@ -52,8 +52,8 @@ vega_wavs = vega_wavs_angs*1e-4
 # Integrate the spectrum
 vega_filter_flux = spectral_tools.bin_spectrum_filter_curve(vega_wavs,vega_flux,filter_wavs,
                      filter_curve)
-
-print 'Flux of vega is:',vega_filter_flux
+print('Using filter '+filter_file)
+print('Flux of vega is '+str(vega_filter_flux))
 
 #######
 

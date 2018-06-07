@@ -357,7 +357,7 @@ def scale_spectral_model_to_flux(spectral_wavs,spectral_flux,photometric_mags,
         star_fluxes_uncerts.append(np.std(star_flux_mc))
         
         # Load the filter curve
-        filter_file = module_dir+source+'.txt'
+        filter_file = module_dir+'filters'+os.sep+source+'.txt'
         filter_wavs,filter_curve = np.loadtxt(filter_file,unpack=True)
         # Add the info needed for the fitting        
         wavs_out.append(np.sum(filter_wavs*filter_curve/np.sum(filter_curve)))
